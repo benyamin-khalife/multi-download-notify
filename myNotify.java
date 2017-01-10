@@ -19,7 +19,7 @@
             return t;
         }
 
-        public static void build(String title,String smallText,int id,Intent intent){
+        public static void build(String title,String smallText,int id,Intent intent,int color){
             mTitle=title;
             NotificationCompat.Builder mBuilder;
 
@@ -28,11 +28,12 @@
                     pendingIntent = PendingIntent.getActivity(context, 0 /* Request code */, intent,
                     PendingIntent.FLAG_ONE_SHOT);
 
-            
+
             mBuilder = new NotificationCompat.Builder(context);
             mBuilder.setContentTitle(title)
                     .setContentText(smallText)
                     .setContentIntent(pendingIntent)
+                    .setColor(color)
                     .setAutoCancel(false)
                     .setSmallIcon(R.mipmap.ic_launcher);
 
@@ -77,4 +78,3 @@
             }catch (Exception e){Log.e("dl","completed >> Error");}
         }
     }
-
